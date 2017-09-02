@@ -25,7 +25,7 @@ class Application
         $this->action = 'index';
         $this->controller = self::DEFAULT_CONTROLLER;
 
-        if (count($pathInfo) >= 1) {
+        if (count($pathInfo) >= 1 && $pathInfo[0] !== '') {
             if (isset($pathInfo[0])) {
                 $this->setController($pathInfo[0]);
             }

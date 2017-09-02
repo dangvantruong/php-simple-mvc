@@ -16,10 +16,6 @@ class Controller
      */
     function render($view, array $params = [])
     {
-        $view = str_replace('.', '/', $view);
-        ob_start();
-        extract($params, EXTR_SKIP);
-        require_once APP_PATH . "Views/{$view}.html";
-        ob_end_flush();
+        return view($view, $params);
     }
 }

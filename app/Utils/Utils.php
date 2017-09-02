@@ -27,3 +27,14 @@ if (!function_exists('view')) {
         ob_end_flush();
     }
 }
+
+if (!function_exists('config')) {
+    /**
+     * Debug helper function
+     *
+     */
+    function config($key)
+    {
+        return \App\Core\Config::get($key);
+    }
+}

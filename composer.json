@@ -1,0 +1,13 @@
+{
+    "name": "phucngo/simplemvc",
+    "description": "Implement Simple MVC Framework in PHP for training Intern Student\"",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Phuc Ngo",
+            "email": "ngovanphuc@hotmail.com"
+        }
+    ],
+    "require": {}
+}

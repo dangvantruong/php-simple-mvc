@@ -14,8 +14,6 @@ class LoginController extends Controller
      */
     public function index()
     {
-
-        Cookie::set('auth_key', md5(time()), 3600);
         return view('login.index');
     }
 

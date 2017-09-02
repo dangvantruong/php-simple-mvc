@@ -23,6 +23,7 @@ class Session
      */
     public static function destroy()
     {
+        $_SESSION = [];
         session_destroy();
     }
 

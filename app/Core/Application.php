@@ -2,6 +2,8 @@
 
 namespace App\Core;
 
+use App\Core\Session;
+
 
 /**
  * Front controller
@@ -38,6 +40,13 @@ class Application
                 $this->params = [$pathInfo[2]];
             }
         }
+
+        $this->setup();
+    }
+
+    public function setup()
+    {
+        Session::start();
     }
 
     public function setController($controller)

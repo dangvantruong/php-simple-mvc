@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Core\Session;
+use App\Core\Cookie;
 
 class LoginController extends Controller
 {
@@ -12,6 +14,8 @@ class LoginController extends Controller
      */
     public function index()
     {
+
+        Cookie::set('auth_key', md5(time()), 3600);
         return view('login.index');
     }
 

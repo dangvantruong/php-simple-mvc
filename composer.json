@@ -9,5 +9,13 @@
             "email": "ngovanphuc@hotmail.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": [
+            "app/Utils/Utils.php"
+        ]
+    }
 }

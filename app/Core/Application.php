@@ -22,7 +22,10 @@ class Application
         $path = trim(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), "/");
         $pathInfo = explode("/", $path, 3);
         $this->params = [];
-        if (count($pathInfo) != 1) {
+        $this->action = 'index';
+        $this->controller = self::DEFAULT_CONTROLLER;
+
+        if (count($pathInfo) >= 1) {
             if (isset($pathInfo[0])) {
                 $this->setController($pathInfo[0]);
             }
@@ -34,9 +37,6 @@ class Application
             if (isset($pathInfo[2])) {
                 $this->params = [$pathInfo[2]];
             }
-        } else {
-            $this->controller = self::DEFAULT_CONTROLLER;
-            $this->action = self::DEFAULT_ACTION;
         }
     }
 

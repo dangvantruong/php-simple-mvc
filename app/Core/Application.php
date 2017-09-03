@@ -21,6 +21,25 @@ class Application
 
     public function __construct()
     {
+        $this->setup();
+        $this->parseUri();
+    }
+
+    /**
+     * Common setup
+     *
+     */
+    public function setup()
+    {
+        Session::start();
+    }
+
+    /*
+     * Parser uri request and determine controller, action, param
+     *
+     */
+    protected function parseUri()
+    {
         $path = trim(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), "/");
         $pathInfo = explode("/", $path, 3);
         $this->params = [];
@@ -40,15 +59,15 @@ class Application
                 $this->params = [$pathInfo[2]];
             }
         }
-
-        $this->setup();
     }
 
-    public function setup()
-    {
-        Session::start();
-    }
-
+    /**
+     * Get controller from uri and check if the controller exists in app/Controllers/ folder
+     *
+     * @param String $controller controller name
+     *
+     * @return App\Core\Application
+     */
     public function setController($controller)
     {
         $controller = sprintf("\App\Controllers\%sController", ucfirst($controller));
@@ -60,6 +79,13 @@ class Application
         return $this;
     }
 
+    /**
+     * Get action from uri and check if the action exists
+     *
+     * @param String $action controller action name
+     *
+     * @return App\Core\Application
+     */
     public function setAction($action)
     {
         $reflector = new \ReflectionClass($this->controller);

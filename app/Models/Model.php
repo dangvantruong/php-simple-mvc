@@ -17,7 +17,9 @@ class Model
             throw \Exception("table must be defined");
         }
 
-        static::$db = new Database();
+        if (static::$db === null) {
+            static::$db = new Database();
+        }
     }
 
     public function db()

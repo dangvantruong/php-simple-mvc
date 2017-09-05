@@ -14,13 +14,7 @@ Tài liệu này sẽ hướng dẫn các bạn implement 1 web framework theo m
 ----
 Trước tiên chúng ta cần set các yêu cầu cơ bản cho framework.
 
-1. Dùng modem php syntax,
-2. Dùng composer quản lý package và autoload.
-3.
-----
-Trước tiên chúng ta cần set các yêu cầu cơ bản cho framework.
-
-1. Dùng modem php syntax,
+1. Dùng modern php syntax,
 2. Dùng composer quản lý package và autoload.
 3. Phải phân tách được các đối tượng Model, View, Controller.
 4. Database dùng PDO.
